@@ -8,18 +8,7 @@ License:	GPL v.2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/sourceforge/wpkg/%{name}-%{version}.tar.gz
 # Source0-md5:	ada1f9b4b9b22dc8a1d258d1714f513c
-#Patch0:		%{name}-what.patch
 URL:		http://wpkg.sourceforge.net/
-#BuildRequires:	automake
-#BuildRequires:	-
-#PreReq:		-
-#Requires(pre,post):	-
-#Requires(preun):	-
-#Requires(postun):	-
-#Requires:	-
-#Provides:	-
-#Obsoletes:	-
-#Conflicts:	-
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,8 +33,6 @@ packages, and all other packages using repackaging or AutoIt
 %prep
 %setup -q -n %{name}
 
-%build
-
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_sysconfdir}/%{name}}
@@ -61,14 +48,6 @@ ln -s %{_sysconfdir}/%{name}/profiles.xml profiles.xml
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%pre
-
-%post
-
-%preun
-
-%postun
 
 %files
 %defattr(644,root,root,755)
