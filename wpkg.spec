@@ -8,6 +8,8 @@ License:	GPL v.2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/wpkg/%{name}-%{version}.tar.gz
 # Source0-md5:	1f9fbeeb07525ba2182880ef28a041c4
+Source1:	%{name}-samba.conf
+#Source2:	%{name}-
 URL:		http://wpkg.sourceforge.net/
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -36,12 +38,13 @@ wszystkie inne pakiety poprzez przepakowanie albo AutoIt.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_sysconfdir}/%{name}}
+install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_sysconfdir}/{%{name},samba}}
 
 install wpkg.js		$RPM_BUILD_ROOT%{_datadir}/%{name}/wpkg.js
 install hosts.xml 	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/hosts.xml
 install packages.xml	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/packages.xml
 install profiles.xml	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/profiles.xml
+install %{SOURCE1}	$RPM_BUILD_ROOT%{_sysconfdir}/samba
 
 cd $RPM_BUILD_ROOT%{_datadir}/%{name}
 ln -s %{_sysconfdir}/%{name}/hosts.xml	hosts.xml
