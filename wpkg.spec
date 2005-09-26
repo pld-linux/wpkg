@@ -1,13 +1,13 @@
 Summary:	WPKG - a Windows Packager
 Summary(pl):	WPKG - a Windows Packager - instalator pakietów dla Windows
 Name:		wpkg
-Version:	r433
+Version:	0.9
 Release:	0.1
 Epoch:		0
 License:	GPL v.2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/wpkg/%{name}-%{version}.tar.gz
-# Source0-md5:	ada1f9b4b9b22dc8a1d258d1714f513c
+# Source0-md5:	1f9fbeeb07525ba2182880ef28a041c4
 URL:		http://wpkg.sourceforge.net/
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -32,7 +32,7 @@ instalowaæ pakiety MSI, InstallShield, PackagefortheWeb itp. oraz
 wszystkie inne pakiety poprzez przepakowanie albo AutoIt.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 
 %install
 rm -rf $RPM_BUILD_ROOT
