@@ -2,14 +2,18 @@ Summary:	WPKG - a Windows Packager
 Summary(pl):	WPKG - a Windows Packager - instalator pakietów dla Windows
 Name:		wpkg
 Version:	0.9
-Release:	0.1
+Release:	0.2
 Epoch:		0
 License:	GPL v.2
 Group:		Applications
 Source0:	http://dl.sourceforge.net/wpkg/%{name}-%{version}.tar.gz
 # Source0-md5:	1f9fbeeb07525ba2182880ef28a041c4
 Source1:	%{name}-samba.conf
-#Source2:	%{name}-
+Source2:	%{name}-install-service.js
+Source3:	%{name}-install.bat
+Source4:	%{name}-install-service.bat
+Source5:	%{name}-start.bat
+#Source6:	%{name}-
 URL:		http://wpkg.sourceforge.net/
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -44,7 +48,11 @@ install wpkg.js		$RPM_BUILD_ROOT%{_datadir}/%{name}/wpkg.js
 install hosts.xml 	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/hosts.xml
 install packages.xml	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/packages.xml
 install profiles.xml	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/profiles.xml
-install %{SOURCE1}	$RPM_BUILD_ROOT%{_sysconfdir}/samba
+install %{SOURCE1}	$RPM_BUILD_ROOT%{_sysconfdir}/samba/
+install %{SOURCE2}	$RPM_BUILD_ROOT%{_datadir}/%{name}/
+install %{SOURCE3}	$RPM_BUILD_ROOT%{_datadir}/%{name}/
+install %{SOURCE4}	$RPM_BUILD_ROOT%{_datadir}/%{name}/
+install %{SOURCE5}	$RPM_BUILD_ROOT%{_datadir}/%{name}/
 
 cd $RPM_BUILD_ROOT%{_datadir}/%{name}
 ln -s %{_sysconfdir}/%{name}/hosts.xml	hosts.xml
@@ -59,5 +67,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc README TODO GPL-2 LICENSE
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %dir %{_datadir}/%{name}
-%attr(755,root,root) %{_datadir}/%{name}/wpkg.js
-%{_datadir}/%{name}/*.xml
+%attr(644,root,root) %{_datadir}/%{name}/*
