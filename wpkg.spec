@@ -48,11 +48,11 @@ install wpkg.js		$RPM_BUILD_ROOT%{_datadir}/%{name}/wpkg.js
 install hosts.xml 	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/hosts.xml
 install packages.xml	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/packages.xml
 install profiles.xml	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/profiles.xml
-install %{SOURCE1}	$RPM_BUILD_ROOT%{_sysconfdir}/samba/
-install %{SOURCE2}	$RPM_BUILD_ROOT%{_datadir}/%{name}/
-install %{SOURCE3}	$RPM_BUILD_ROOT%{_datadir}/%{name}/
-install %{SOURCE4}	$RPM_BUILD_ROOT%{_datadir}/%{name}/
-install %{SOURCE5}	$RPM_BUILD_ROOT%{_datadir}/%{name}/
+install %{SOURCE1}	$RPM_BUILD_ROOT%{_sysconfdir}/samba
+install %{SOURCE2}	$RPM_BUILD_ROOT%{_datadir}/%{name}
+install %{SOURCE3}	$RPM_BUILD_ROOT%{_datadir}/%{name}
+install %{SOURCE4}	$RPM_BUILD_ROOT%{_datadir}/%{name}
+install %{SOURCE5}	$RPM_BUILD_ROOT%{_datadir}/%{name}
 
 cd $RPM_BUILD_ROOT%{_datadir}/%{name}
 ln -s %{_sysconfdir}/%{name}/hosts.xml	hosts.xml
@@ -67,4 +67,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc README TODO GPL-2 LICENSE
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %dir %{_datadir}/%{name}
-%attr(644,root,root) %{_datadir}/%{name}/*
+%{_datadir}/%{name}/*
