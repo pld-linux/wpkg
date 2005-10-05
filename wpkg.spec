@@ -2,7 +2,7 @@ Summary:	WPKG - a Windows Packager
 Summary(pl):	WPKG - a Windows Packager - instalator pakietów dla Windows
 Name:		wpkg
 Version:	0.9
-Release:	0.2
+Release:	1
 Epoch:		0
 License:	GPL v.2
 Group:		Applications
@@ -36,7 +36,6 @@ Samby) na wiele stacji roboczych. Mo¿e dzia³aæ jako us³uga do
 instalowania oprogramowania w tle, bez interakcji u¿ytkownika. Potrafi
 instalowaæ pakiety MSI, InstallShield, PackagefortheWeb itp. oraz
 wszystkie inne pakiety poprzez przepakowanie albo AutoIt.
-
 %prep
 %setup -q
 
