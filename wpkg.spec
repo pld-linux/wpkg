@@ -42,16 +42,16 @@ wszystkie inne pakiety poprzez przepakowanie albo AutoIt.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_sysconfdir}/{%{name},samba}}
+install -d $RPM_BUILD_ROOT{%{_datadir}/%{name}/files,%{_sysconfdir}/{%{name},samba}}
 
 install wpkg.js		$RPM_BUILD_ROOT%{_datadir}/%{name}/wpkg.js
 install hosts.xml 	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/hosts.xml
 install packages.xml	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/packages.xml
 install profiles.xml	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/profiles.xml
 install %{SOURCE1}	$RPM_BUILD_ROOT%{_sysconfdir}/samba
-install %{SOURCE2}	$RPM_BUILD_ROOT%{_datadir}/%{name}
-install %{SOURCE3}	$RPM_BUILD_ROOT%{_datadir}/%{name}
-install %{SOURCE4}	$RPM_BUILD_ROOT%{_datadir}/%{name}
+install %{SOURCE2}	$RPM_BUILD_ROOT%{_datadir}/%{name}/files
+install %{SOURCE3}	$RPM_BUILD_ROOT%{_datadir}/%{name}/files
+install %{SOURCE4}	$RPM_BUILD_ROOT%{_datadir}/%{name}/files
 install %{SOURCE5}	$RPM_BUILD_ROOT%{_datadir}/%{name}
 
 cd $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -68,3 +68,5 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
+%dir %{_datadir}/%{name}/files
+%{_datadir}/%{name}/files/*
