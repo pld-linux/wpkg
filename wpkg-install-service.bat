@@ -1,6 +1,6 @@
 REM this batch file install WPKG as service in windows 2000/XP
 REM use as administrator or user with administrators privileges
-rem first get with net files Srvany.exe Instsrv.exe scriptpl.exe
+rem first get from net files: Srvany.exe Instsrv.exe scriptpl.exe
 echo on
 copy \\servername\wpkg\files\Srvany.exe %SystemRoot%\System32\
 copy \\servername\wpkg\files\Instsrv.exe %SystemRoot%\System32\
