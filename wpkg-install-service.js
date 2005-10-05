@@ -1,6 +1,6 @@
 var WshShell = WScript.CreateObject("WScript.Shell");
-var srvKey = "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Windows Packager\\Parameters\\";
+var srvKey = "HKLM\\SYSTEM\\CurrentControlSet\\Services\\WPKG\\Parameters\\";
 var appKey = srvKey + "Application";
-var srvPath = "C:\\NETINST\\wpkg-start.bat"
+var srvPath = "\\\\servername\\wpkg\\wpkg-start.bat"
 WshShell.RegWrite(appKey, srvPath, "REG_SZ");
 
