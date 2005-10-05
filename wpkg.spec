@@ -36,6 +36,7 @@ Samby) na wiele stacji roboczych. Mo¿e dzia³aæ jako us³uga do
 instalowania oprogramowania w tle, bez interakcji u¿ytkownika. Potrafi
 instalowaæ pakiety MSI, InstallShield, PackagefortheWeb itp. oraz
 wszystkie inne pakiety poprzez przepakowanie albo AutoIt.
+
 %prep
 %setup -q
 
