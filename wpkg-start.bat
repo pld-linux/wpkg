@@ -1,1 +1,1 @@
-cscript \\serwer\wpkg\wpkg.js /synchronize /quiet 
+cscript \\serwer\wpkg\wpkg.js /synchronize /quiet
