@@ -2,7 +2,7 @@ Summary:	WPKG - a Windows Packager
 Summary(pl):	WPKG - a Windows Packager - instalator pakietów dla Windows
 Name:		wpkg
 Version:	0.9.1
-Release:	1
+Release:	1.1
 Epoch:		0
 License:	GPL v2
 Group:		Applications
@@ -14,8 +14,11 @@ Source3:	%{name}-install.bat
 Source4:	%{name}-install-service.bat
 Source5:	%{name}-start.bat
 URL:		http://wpkg.org/
+Requires:	samba
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_sysconfdir /etc/%{name}
 
 %description
 WPKG is an automated software deployment, upgrade and removal script
@@ -41,22 +44,17 @@ wszystkie inne pakiety poprzez przepakowanie albo AutoIt.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/%{name}/files,%{_sysconfdir}/{%{name},samba}}
+install -d $RPM_BUILD_ROOT{/etc/samba,%{_sysconfdir}/files}
 
-install wpkg.js		$RPM_BUILD_ROOT%{_datadir}/%{name}/wpkg.js
-install hosts.xml 	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/hosts.xml
-install packages.xml	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/packages.xml
-install profiles.xml	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/profiles.xml
-install %{SOURCE1}	$RPM_BUILD_ROOT%{_sysconfdir}/samba
-install %{SOURCE2}	$RPM_BUILD_ROOT%{_datadir}/%{name}/files
-install %{SOURCE3}	$RPM_BUILD_ROOT%{_datadir}/%{name}/files
-install %{SOURCE4}	$RPM_BUILD_ROOT%{_datadir}/%{name}/files
-install %{SOURCE5}	$RPM_BUILD_ROOT%{_datadir}/%{name}
-
-cd $RPM_BUILD_ROOT%{_datadir}/%{name}
-ln -s %{_sysconfdir}/%{name}/hosts.xml hosts.xml
-ln -s %{_sysconfdir}/%{name}/packages.xml packages.xml
-ln -s %{_sysconfdir}/%{name}/profiles.xml profiles.xml
+install wpkg.js		$RPM_BUILD_ROOT%{_sysconfdir}/wpkg.js
+install hosts.xml 	$RPM_BUILD_ROOT%{_sysconfdir}/hosts.xml
+install packages.xml	$RPM_BUILD_ROOT%{_sysconfdir}/packages.xml
+install profiles.xml	$RPM_BUILD_ROOT%{_sysconfdir}/profiles.xml
+install %{SOURCE1}	$RPM_BUILD_ROOT/etc/samba
+install %{SOURCE2}	$RPM_BUILD_ROOT%{_sysconfdir}/files
+install %{SOURCE3}	$RPM_BUILD_ROOT%{_sysconfdir}/files
+install %{SOURCE4}	$RPM_BUILD_ROOT%{_sysconfdir}/files
+install %{SOURCE5}	$RPM_BUILD_ROOT%{_sysconfdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -64,5 +62,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README TODO LICENSE
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
-%{_datadir}/%{name}
+%dir %{_sysconfdir}
+%{_sysconfdir}/*.js
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*.xml
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*.bat
+%dir %{_sysconfdir}/files
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/files/*
+
+%config(noreplace) %verify(not md5 mtime size) /etc/samba/*
