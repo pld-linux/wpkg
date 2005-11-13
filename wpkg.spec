@@ -4,7 +4,7 @@ Name:		wpkg
 Version:	0.9.1
 Release:	1
 Epoch:		0
-License:	GPL v.2
+License:	GPL v2
 Group:		Applications
 #Source0:	http://dl.sourceforge.net/wpkg/%{name}-%{version}.tar.gz
 Source0:	http://wpkg.org/files/%{name}-%{version}.tar.bz2
@@ -40,7 +40,6 @@ instalowaæ pakiety MSI, InstallShield, PackagefortheWeb itp. oraz
 wszystkie inne pakiety poprzez przepakowanie albo AutoIt.
 
 %prep
-
 %setup -q
 
 %install
@@ -58,7 +57,7 @@ install %{SOURCE4}	$RPM_BUILD_ROOT%{_datadir}/%{name}/files
 install %{SOURCE5}	$RPM_BUILD_ROOT%{_datadir}/%{name}
 
 cd $RPM_BUILD_ROOT%{_datadir}/%{name}
-ln -s %{_sysconfdir}/%{name}/hosts.xml	hosts.xml
+ln -s %{_sysconfdir}/%{name}/hosts.xml hosts.xml
 ln -s %{_sysconfdir}/%{name}/packages.xml packages.xml
 ln -s %{_sysconfdir}/%{name}/profiles.xml profiles.xml
 
@@ -67,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README TODO GPL-2 LICENSE
+%doc README TODO LICENSE
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
