@@ -68,7 +68,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README TODO LICENSE
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/*
-%dir %{_datadir}/%{name}/files
-%{_datadir}/%{name}/files/*
+%{_datadir}/%{name}
