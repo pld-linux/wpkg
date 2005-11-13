@@ -15,8 +15,7 @@ Source3:	%{name}-install.bat
 Source4:	%{name}-install-service.bat
 Source5:	%{name}-start.bat
 #Source6:	%{name}-
-URL:		http://wpkg.sourceforge.net/
-#URL:		http://wpkg.org
+URL:		http://wpkg.org/
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
