@@ -6,7 +6,6 @@ Release:	1
 Epoch:		0
 License:	GPL v2
 Group:		Applications
-#Source0:	http://dl.sourceforge.net/wpkg/%{name}-%{version}.tar.gz
 Source0:	http://wpkg.org/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	79f3819ed43840fb67e3ef741234dd5e
 Source1:	%{name}-samba.conf
@@ -14,7 +13,6 @@ Source2:	%{name}-install-service.js
 Source3:	%{name}-install.bat
 Source4:	%{name}-install-service.bat
 Source5:	%{name}-start.bat
-#Source6:	%{name}-
 URL:		http://wpkg.org/
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
