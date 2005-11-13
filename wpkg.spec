@@ -41,7 +41,7 @@ wszystkie inne pakiety poprzez przepakowanie albo AutoIt.
 
 %prep
 
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -59,8 +59,8 @@ install %{SOURCE5}	$RPM_BUILD_ROOT%{_datadir}/%{name}
 
 cd $RPM_BUILD_ROOT%{_datadir}/%{name}
 ln -s %{_sysconfdir}/%{name}/hosts.xml	hosts.xml
-ln -s %{_sysconfdir}/%{name}/packages.xml packages.xml 
-ln -s %{_sysconfdir}/%{name}/profiles.xml profiles.xml 
+ln -s %{_sysconfdir}/%{name}/packages.xml packages.xml
+ln -s %{_sysconfdir}/%{name}/profiles.xml profiles.xml
 
 %clean
 rm -rf $RPM_BUILD_ROOT
