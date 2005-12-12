@@ -1,13 +1,13 @@
 Summary:	WPKG - a Windows Packager
 Summary(pl):	WPKG - a Windows Packager - instalator pakietów dla Windows
 Name:		wpkg
-Version:	0.9.1
-Release:	1.1
+Version:	0.9.2
+Release:	0.1
 Epoch:		0
 License:	GPL v2
 Group:		Applications
 Source0:	http://wpkg.org/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	79f3819ed43840fb67e3ef741234dd5e
+# Source0-md5:	66242ce925e107eac5168128f9c41ca4
 Source1:	%{name}-samba.conf
 Source2:	%{name}-install-service.js
 Source3:	%{name}-install.bat
