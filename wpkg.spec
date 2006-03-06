@@ -7,7 +7,7 @@ Epoch:		0
 License:	GPL v2
 Group:		Applications
 Source0:	http://www1.wpkg.org/files/wpkg/stable/%{name}-%{version}.tar.bz2
-# Source0-md5:	f1db3f8db1714249c5d622741f84bc23
+# Source0-md5:	2c1c57ff82c648b5715b3a5b896af63b
 Source1:	%{name}-samba.conf
 Source2:	%{name}-install-service.js
 Source3:	%{name}-install.bat
