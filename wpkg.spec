@@ -1,5 +1,5 @@
 Summary:	WPKG - a Windows Packager
-Summary(pl):	WPKG - a Windows Packager - instalator pakietów dla Windows
+Summary(pl.UTF-8):   WPKG - a Windows Packager - instalator pakietÃ³w dla Windows
 Name:		wpkg
 Version:	0.9.10
 Release:	1
@@ -29,14 +29,14 @@ a service to install software in the background, without user
 interaction. It can install MSI, InstallShield, PackagefortheWeb etc.
 packages, and all other packages using repackaging or AutoIt.
 
-%description -l pl
+%description -l pl.UTF-8
 WPKG to skrypt dla Windows do zautomatyzowanego rozprowadzania,
-uaktualniania i usuwania oprogramowania. Mo¿e byæ u¿ywany do
-upychania/¶ci±gania pakietów z oprogramowaniem, takich jak Service
+uaktualniania i usuwania oprogramowania. MoÅ¼e byÄ‡ uÅ¼ywany do
+upychania/Å›ciÄ…gania pakietÃ³w z oprogramowaniem, takich jak Service
 Packi, hotfiksy albo programy instalacyjne z centralnego serwera (np.
-Samby) na wiele stacji roboczych. Mo¿e dzia³aæ jako us³uga do
-instalowania oprogramowania w tle, bez interakcji u¿ytkownika. Potrafi
-instalowaæ pakiety MSI, InstallShield, PackagefortheWeb itp. oraz
+Samby) na wiele stacji roboczych. MoÅ¼e dziaÅ‚aÄ‡ jako usÅ‚uga do
+instalowania oprogramowania w tle, bez interakcji uÅ¼ytkownika. Potrafi
+instalowaÄ‡ pakiety MSI, InstallShield, PackagefortheWeb itp. oraz
 wszystkie inne pakiety poprzez przepakowanie albo AutoIt.
 
 %prep
