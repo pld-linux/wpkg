@@ -1,13 +1,13 @@
 Summary:	WPKG - a Windows Packager
 Summary(pl.UTF-8):	WPKG - a Windows Packager - instalator pakietów dla Windows
 Name:		wpkg
-Version:	0.9.10
-Release:	1
+Version:	1.0
+Release:	beta.1
 Epoch:		0
 License:	GPL v2
 Group:		Applications
-Source0:	http://wpkg.org/files/stable/%{name}-%{version}.tar.bz2
-# Source0-md5:	aa3498afbdd76a07862ef215f8357637
+Source0:	http://wpkg.org/files/beta/%{name}-%{version}-rc2.tar.bz2
+# Source0-md5:	0570cbdd552570f708ec795aaf955b66
 Source1:	%{name}-samba.conf
 Source2:	%{name}-install-service.js
 Source3:	%{name}-install.bat
@@ -40,11 +40,11 @@ instalować pakiety MSI, InstallShield, PackagefortheWeb itp. oraz
 wszystkie inne pakiety poprzez przepakowanie albo AutoIt.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-rc2
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{/etc/samba,%{_sysconfdir}/files}
+install -d $RPM_BUILD_ROOT{/etc/samba,%{_sysconfdir}/{files,hosts,packages,profiles,tools}}
 
 install wpkg.js		$RPM_BUILD_ROOT%{_sysconfdir}/wpkg.js
 install hosts.xml 	$RPM_BUILD_ROOT%{_sysconfdir}/hosts.xml
@@ -55,18 +55,26 @@ install %{SOURCE2}	$RPM_BUILD_ROOT%{_sysconfdir}/files
 install %{SOURCE3}	$RPM_BUILD_ROOT%{_sysconfdir}/files
 install %{SOURCE4}	$RPM_BUILD_ROOT%{_sysconfdir}/files
 install %{SOURCE5}	$RPM_BUILD_ROOT%{_sysconfdir}
+cp -rf {hosts,packages,profiles,tools} $RPM_BUILD_ROOT%{_sysconfdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README TODO LICENSE
+%doc README LICENSE CHANGES Changelog USAGE CONTRIBUTORS 
 %dir %{_sysconfdir}
 %{_sysconfdir}/*.js
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*.xml
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*.bat
 %dir %{_sysconfdir}/files
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/files/*
-
+%dir %{_sysconfdir}/hosts
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/hosts/*
+%dir %{_sysconfdir}/packages
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/packages/*
+%dir %{_sysconfdir}/profiles
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/profiles/*
+%dir %{_sysconfdir}/tools
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/tools/*
 %config(noreplace) %verify(not md5 mtime size) /etc/samba/*
